@@ -19,7 +19,17 @@ public class Booking {
 	private String email;
 	private String category;
 	
+	private String photos;
 	
+	
+	public String getPhotos() {
+		return photos;
+	}
+
+	public void setPhotos(String photos) {
+		this.photos = photos;
+	}
+
 	public int getUserid() {
 		return userid;
 	}

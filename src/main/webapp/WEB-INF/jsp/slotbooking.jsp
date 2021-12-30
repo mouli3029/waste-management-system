@@ -39,7 +39,7 @@
     </nav>
     <div class="parent" style="margin: 30px;">
         <div class="div1">
-            <form style="width: auto;" method="POST"  modelAttribute="newslot" action="/slotbooking" >
+            <form enctype="multipart/form-data" style="width: auto;" method="POST"  modelAttribute="newslot" action="/slotbooking" >
                 <div class="formsub">
                     <fieldset>
                         <legend style="font-size: 1.5rem;">Slot Booking</legend>
@@ -65,7 +65,7 @@
                                 Weight : <input type="number" class="tt" name="weight"><br>
                                 <br>
                                 Upload a picture of products to be recycled:<br>
-                                <input type="file" name="recycled-waste" accept="image/*" onchange="loadFile(event)">
+                                <input type="file" name="image" accept="image/*" onchange="loadFile(event)">
                                 <script>
                                     var loadFile = function (event) {
                                         var output = document.getElementById('output');
