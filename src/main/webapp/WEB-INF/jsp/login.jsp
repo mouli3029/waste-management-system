@@ -2,78 +2,149 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="title" content="project">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="language" content="English">
-  <meta name="author" content="mouli">
-  
-  <title> Home </title>
-  <!-- BOOTSTRAP FILES -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- MY CSS -->
-  <link rel="stylesheet" type="text/css" href= "css/styles.css"/>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slot Booking</title>
+  <link href="/slot-booking/slot-booking.css" rel="stylesheet" />
+  <style>
+    html,
+    body {
+      min-height: 100%;
+    }
+  </style>
 </head>
 
-<body class="home">
-    <div class="nav">
-      <ul class="nav-item-left">
-          <li>
-            <a class="nav-link" href="/">
-              <img class="img" src="{% static 'logo.png' %}" width="70px" height="40px"/>
-            </a>
-          </li>
-          <li><a class="nav-link" href="/">Home</a></li>
-          <li><a class="nav-link " href="{% url 'menu' %}">Menu</a></li>
-          <li><a class="nav-link" href="{% url 'hotels' %}">Hotels</a></li>
-      </ul>
-      <ul class="nav-item-right">
-            <!-- {% if user.is_authenticated %} -->
-            <li><a class="nav-link" href="{% url "logout" %}"><span class="glyphicon glyphicon-log-out"></span> &nbsp; Logout</a></li>
-            <li><a class="nav-link" href="{% url 'cart' %}">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-              </svg> &nbsp;Cart
-            </a></li>
-            <!-- {% else %} -->
-            <li><a class="nav-link" href="{% url "register" %}"><span class="glyphicon glyphicon-user"></span> &nbsp; Sign up</a></li>
-            &nbsp;&nbsp;&nbsp;
-            <li><a class="nav-link" href="{% url "login" %}"><span class="glyphicon glyphicon-log-in"></span> &nbsp; Log in</a></li>
-            <!-- {% endif %} -->
-      </ul>
+<body>
+  <nav class="navigation container">
+    <div class="nav-brand">Congenial Recycling</div>
+    <ul class="list-non-bullet nav-pills">
+      <li class="list-item-inline">
+        <a class="link" href="../index.html">Our Values</a>
+      </li>
+      <li class="list-item-inline">
+        <a class="link link-active" href="#">Slot Booking</a>
+      </li>
+      <li class="list-item-inline">
+        <a class="link" href="/products/products.html">Products</a>
+      </li>
+      <li class="list-item-inline">
+        <a class="link link-active" href="/login/login.html">Login</a>
+      </li>
+      <li class="list-item-inline">
+        <a class="link" href="/signup/signup.html">Signup</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="parent" style="margin: 30px;">
+    <div class="div1">
+      <form style="width: auto;" method="POST" modelAttribute="newslot" action="/slotbooking">
+        <div class="formsub">
+          <fieldset>
+            <legend style="font-size: 1.5rem;">Slot Booking</legend>
+            <div class="parentform">
+              <div class="div1form">
+                Full Name: <input type="text" class="tt" name="name" placeholder="Your Name" required><br>
+                <label for="address" style="display: inline-block; vertical-align: super;">Address:
+                </label>
+                <textarea class="tt" required name="address" id="address" placeholder="Address"
+                  style="display: inline-block; vertical-align: middle;">
+                                    </textarea><br>
+                Mobile No: <input type="number" class="tt" name="mobile"><br>
+                Email: <input type="email" class="tt" name="email" placeholder="Email"><br>
+                Select the category of waste:<br>
+                <label for="category-dry">Dry</label>
+                <input type="radio" name="category" value="Dry" />
+                <label for="category-wet">Wet</label>
+                <input type="radio" name="category" value="Wet" />
+                <label for="category-both">Both</label>
+                <input type="radio" name="category" value="Dry and Wet" />
+                <br>
+                Weight : <input type="number" class="tt" name="weight">
+                <br>
+                Upload a picture of products to be recycled:<br>
+                <input type="file" name="recycled-waste" accept="image/*" onchange="loadFile(event)">
+                <script>
+                  var loadFile = function (event) {
+                    var output = document.getElementById('output');
+                    output.src = URL.createObjectURL(event.target.files[0]);
+                    output.onload = function () {
+                      URL.revokeObjectURL(output.src) // free memory
+                    }
+                  };
+                </script>
+                <br>
+                <input type="checkbox" id="agree" name="agree" value="agree" onchange="handlecheck()">
+                <label for="agree">I agree to share my information with recycling facilities</label><br>
+                <button id="submitbtn" type="submit">Submit</button>
+                <script>
+                  btn = document.querySelector("#submitbtn");
+
+                  function handlecheck() {
+                    chk = document.querySelector("#agree")
+                    if (chk.checked) {
+                      btn.disabled = false;
+                    } else {
+                      btn.disabled = true;
+                    }
+                  }
+                </script>
+              </div>
+              <div class="div2form">
+                <span style="font-size: 1.2rem; font-style: oblique;">Image Preview: </span><br>
+                <img id="output" style="max-width:250px; max-height:300px;">
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </form>
+    </div>
+    <div class="div2">
+      <div class="parent1">
+        <div class="div11">
+          <h2>Offices</h2>
+          <span>
+            Rajahmundry<br>
+            2-29, A.V.Apparao Road
+          </span>
+          <br><br>
+          <span>
+            Vijayawada<br>
+            6th Street Avenue, M.G.Road
+          </span>
+        </div>
+        <div class="div21">
+          <h2>For Quick Inquiries</h2>
+          <span>+91 8919923433</span><br>
+          <span>+91 8309044075</span>
+        </div>
+      </div>
+    </div>
   </div>
-  
-  <br/>
-  <br>
-  <br>
-   <span>${msg}</span>
-    <div class="main col-md-8 col-md-offset-2">
-    <form method="POST" class="form-content">
-        <h3 class="form-header">Login</h3>
-        <div class="form-group">
-        <div class="form-group-content">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
-            <button type="submit" class="btn btn-primary">Login</button>
-        </div>
-        </div>
-        <div class="last">
-        <p> Don't Have a Account ?<a href="{% url "register" %}" style="text-decoration: none; color: #E83A59; padding:3%; cursor:pointer;">Register</a></p>
-        <button class="button" type="submit"><span class="glyphicon glyphicon-check"></span> &nbsp; Continue</button>
-        </div>
-    </form>
- </div>
 
 
-
+  <footer class="footer">
+    <div class="footer-header">Some small heading inside footer</div>
+    <ul class="social-links list-non-bullet">
+      <li class="list-item-inline">
+        <a class="link" href="#">
+          socialone
+        </a>
+      </li>
+      <li class="list-item-inline">
+        <a class="link" href="#">
+          socialtwo
+        </a>
+      </li>
+      <li class="list-item-inline">
+        <a class="link" href="#">
+          socialthree
+        </a>
+      </li>
+    </ul>
+  </footer>
 </body>
 
 </html>
