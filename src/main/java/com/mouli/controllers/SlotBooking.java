@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.mouli.beans.Booking;
+import com.mouli.beans.User;
 import com.mouli.repos.SlotBookingRepo;
 import com.mouli.utils.FileUploadUtil;
 

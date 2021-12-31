@@ -17,24 +17,26 @@
 </head>
 
 <body>
+ <c:set var="user" scope="session" value="${user}"> </c:set>
     <nav class="navigation container">
         <div class="nav-brand">Congenial Recycling</div>
         <ul class="list-non-bullet nav-pills">
             <li class="list-item-inline">
-                <a class="link" href="../index.html">Our Values</a>
+                <a class="link" href="/">Our Values</a>
             </li>
+            
+             <li class="list-item-inline">
+                <a class="link" href="/products">Products</a>
+            </li>
+            
             <li class="list-item-inline">
                 <a class="link link-active" href="#">Slot Booking</a>
             </li>
+            
             <li class="list-item-inline">
-                <a class="link" href="/products/products.html">Products</a>
+                <a class="link" href="/logout">Logout</a>
             </li>
-            <li class="list-item-inline">
-                <a class="link link-active" href="/login/login.html">Login</a>
-            </li>
-            <li class="list-item-inline">
-                <a class="link" href="/signup/signup.html">Signup</a>
-            </li>
+        
         </ul>
     </nav>
     <div class="parent" style="margin: 30px;">
@@ -79,6 +81,18 @@
                                 <input type="checkbox" id="agree" name="agree" value="agree">
                                 <label for="agree">I agree to share my information with recycling facilities</label><br>
                                 <button id="submitbtn" type="submit">Submit</button>
+                                <script>
+                                    btn = document.querySelector("#submitbtn");
+
+                                    function handlecheck() {
+                                        chk = document.querySelector("#agree")
+                                        if (chk.checked) {
+                                            btn.disabled = false;
+                                        } else {
+                                            btn.disabled = true;
+                                        }
+                                    }
+                                </script>
                             </div>
                             <div class="div2form">
                                 <span style="font-size: 1.2rem; font-style: oblique;">Image Preview: </span><br>

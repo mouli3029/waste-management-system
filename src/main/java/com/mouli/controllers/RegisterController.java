@@ -30,9 +30,15 @@ public class RegisterController {
 			model.addAttribute("msg","Please try again !! Something went wrong");
 			return "register";
 		}
+		User checkuser = userrepo.findByUsername(user.getUsername());
+		if(checkuser != null) {
+			model.addAttribute("msg","User already exists with the following username");
+			return "register";
+		}
 		userrepo.save(user);
 		model.addAttribute("msg","Registered Successfully");
-		return "login";
+		model.addAttribute("user",user);
+		return "index";
 	}
 	
 }

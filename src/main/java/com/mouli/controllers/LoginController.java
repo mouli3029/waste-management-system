@@ -25,17 +25,21 @@ public class LoginController {
 	@PostMapping("/login")
 	public String loginUser(@ModelAttribute("username") String username,@ModelAttribute("password") String password,Model model) {
 		User user = userrep.findByUsername(username);
+		System.out.println(user.getUsername());
+		
 		if(user == null) {
 			model.addAttribute("msg","No user found with the provided username. Please register !");
 			return "register";
 		}
 		
-		if(user.getPassword() != password) {
-			model.addAttribute("msg","Invalid Password! Please provide a correct password !");
+		if(!user.getPassword().equals(password)) {
+			model.addAttribute("msg","Invalid Password! Please provide a correct password!");
+			System.out.println(user.getPassword() == password);
 			return "login";
 		}
-		model.addAttribute("LoggedInUser",user);
 		
-		return "login";
+		model.addAttribute("user",user);
+		System.out.println(user.getPassword() == password);
+		return "index";
 	}
 }
