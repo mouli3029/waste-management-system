@@ -18,13 +18,12 @@
 </head>
 <body>
     
-    <c:set var="user" scope="session" value="${user}"> </c:set>
     <c:choose>
       <c:when test="${logout == logout}">
-        <c:remove var="user" scope="session"/>
+        <c:remove var="user" scope="application"/>
       </c:when>
     </c:choose>
-    <nav class="navigation container">
+        <nav class="navigation container">
         <div class="nav-brand">Waste Management System</div>
         <ul class="list-non-bullet nav-pills">
             <li class="list-item-inline">
@@ -36,21 +35,19 @@
             </li>
             
 	        <c:choose>
-	          <c:when test="${user!=null}">
+	          <c:when test="${username !=null}">
 	             <li class="list-item-inline">
 	                <a class="link" href="/slotbooking">Slot Booking</a>
 	            </li>
 	           
-		        <li class="list-item-inline">
-	             <form method="POST" action="/logout">
-		               <input class="nav-button" type="submit" />
-		         </form>
-	            </li>
+		       <li class="list-item-inline">
+                <a class="link" href="/logout">Logout</a>
+            </li>
 	          </c:when>
 	        </c:choose>
 	        
 	         <c:choose>
-	          <c:when test="${user==null}">
+	          <c:when test="${username == null}">
 		         <li class="list-item-inline">
 	                <a class="link" href="/login">Login</a>
 	            </li> 
@@ -73,7 +70,7 @@
                         <br>- Bea Johson
                     </p>
                 </h1>
-                <h1>${user.getUsername()}</h1>
+                <h1>${username}</h1>
             </div>            
             <div class="div2"> 
                 <img class="hero-img" src="/images/logo.png" />

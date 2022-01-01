@@ -15,6 +15,7 @@ public class User {
 	private String name;
 	private long phnno;
 	private String email;
+	
 	public int getId() {
 		return id;
 	}
@@ -51,6 +52,4 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
 }

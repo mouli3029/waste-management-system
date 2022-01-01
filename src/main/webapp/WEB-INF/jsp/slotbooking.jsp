@@ -17,7 +17,6 @@
 </head>
 
 <body>
- <c:set var="user" scope="session" value="${user}"> </c:set>
     <nav class="navigation container">
         <div class="nav-brand">Congenial Recycling</div>
         <ul class="list-non-bullet nav-pills">
@@ -39,35 +38,35 @@
         
         </ul>
     </nav>
-    <div class="parent" style="margin: 30px;">
+      <div class="parent" style="margin: 30px;">
         <div class="div1">
-            <form enctype="multipart/form-data" style="width: auto;" method="POST"  modelAttribute="newslot" action="/slotbooking" >
+            <form style="width: auto;" method="POST" modelAttribute="newslot" action="/slotbooking">
                 <div class="formsub">
                     <fieldset>
                         <legend style="font-size: 1.5rem;">Slot Booking</legend>
                         <div class="parentform">
                             <div class="div1form">
-                                Full Name: <input type="text" class="tt" name="name" placeholder="Your Name"
+                                Full Name: <input type="text" class="tt" name="name"
                                     required><br>
                                 <label for="address" style="display: inline-block; vertical-align: super;">Address:
                                 </label>
-                                <textarea class="tt" required name="address" id="address" placeholder="Address"
-                                    style="display: inline-block; vertical-align: middle;">
+                                <textarea class="tt" required name="address" id="address"
+                                    style="display: inline-block; vertical-align: middle; border-bottom: 1px solid;">
                                 </textarea><br>
                                 Mobile No: <input type="number" class="tt" name="mobile"><br>
-                                Email: <input type="email" class="tt" name="email" placeholder="Email"><br>
+                                Email: <input type="email" class="tt" name="email"><br>
                                 Select the category of waste:<br>
                                 <label for="category-dry">Dry</label>
-                                <input type="radio" name="category" value="Dry"/>
+                                <input type="radio" name="category" value="Dry" />
                                 <label for="category-wet">Wet</label>
-                                <input type="radio" name="category" value="Wet"/>
+                                <input type="radio" name="category" value="Wet" />
                                 <label for="category-both">Both</label>
-                                <input type="radio" name="category" value="Dry and Wet"/>
+                                <input type="radio" name="category" value="Dry and Wet" />
                                 <br>
-                                Weight : <input type="number" class="tt" name="weight"><br>
+                                Weight : <input type="number" class="tt" name="weight">
                                 <br>
                                 Upload a picture of products to be recycled:<br>
-                                <input type="file" name="image" accept="image/*" onchange="loadFile(event)">
+                                <input type="file" name="recycled-waste" accept="image/*" onchange="loadFile(event)" style="border-bottom: none;">
                                 <script>
                                     var loadFile = function (event) {
                                         var output = document.getElementById('output');
@@ -78,7 +77,7 @@
                                     };
                                 </script>
                                 <br>
-                                <input type="checkbox" id="agree" name="agree" value="agree">
+                                <input type="checkbox" id="agree" name="agree" value="agree" onchange="handlecheck()">
                                 <label for="agree">I agree to share my information with recycling facilities</label><br>
                                 <button id="submitbtn" type="submit">Submit</button>
                                 <script>

@@ -35,28 +35,40 @@
         </ul>
         </nav>
 
-    <div class="container-center">
-    <form class="form-content" method="POST" action="/login">
-        <fieldset>
-            <legend>Login</legend>
+        <div class="container-center">
+    <form action="/login" method="POST" class="form-content">
+        <fieldset style="border: none;">            
             <div class="form-group-content">
                 <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required style="margin-left: 11px;">
+                <input type="text" class="form-control" id="username" name="username" required style="margin-left: 11px;">
                 <br>
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required style="margin-left: 20px;">
+                <input type="password" class="form-control" id="password" name="password" required style="margin-left: 20px;">
+                <img id="passtog" src="images/hidden.png" width="20" style="margin-left: 0.5rem;" onclick="myFunction()">
+                <script>
+                    function myFunction() {
+                        console.log("Hi")
+                        let x=document.querySelector("#password");
+                        let t=document.querySelector("#passtog");
+                        if (x.type === "password") {
+                            x.type = "text";
+                            t.src="images/visible.png";
+                        } 
+                        else {
+                            x.type = "password";
+                            t.src="images/hidden.png";
+                        }
+                    }
+                </script>
                 <br>
-                <input type="submit" class="btn btn-primary" id="sbtn" value="Login"/>
+                <button type="submit" class="btn btn-primary" id="sbtn">Login</button>
             </div>        
             <div class="last">
-                <p> Don't Have a Account ?<a href="/register" style="text-decoration: none; color: #E83A59; padding:3%; cursor:pointer;">Register</a></p>        
+                <p> Don't Have a Account ?<a href="{% url "register" %}" style="text-decoration: none; color: #E83A59; padding:3%; cursor:pointer;">Register</a></p>        
             </div>
         </fieldset>               
     </form>
-    <h2>${user==null}</h2>
-    <h2>${msg}</h2>
     </div>
-    
 
     <footer class="footer">
         <div class="footer-header">Some small heading inside footer</div>
@@ -77,6 +89,6 @@
                 </a>
             </li>
         </ul>
-    </footer>    
+    </footer>  
 </body>
 </html>

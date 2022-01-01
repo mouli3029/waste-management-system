@@ -25,6 +25,10 @@ body {
     padding: .5rem 1rem;
     margin: 1rem 0
 }
+.link:hover{    
+    background-color: #155e75;
+    border-radius: 0.4rem;
+}
 
 .link-primary {
     background-color: var(--primary-color);
@@ -88,8 +92,17 @@ body {
 .form-content {
     padding: .4rem;
     margin-top: 4rem;
-    font-size: 1.8rem
+    font-size: 1.8rem;
+    -webkit-box-shadow: 0 0 5px 2px rgba(176, 164, 176, 1) !important;
+    -moz-box-shadow: 0 0 5px 2px rgba(176, 164, 176, 1) !important;
+    box-shadow: 0 0 5px 2px rgba(176, 164, 176, 1) !important;
+    transition: all .3s ease-in-out !important;        
 }
+
+.form-content:hover {    
+    box-shadow: -3px 18px 20px 0 rgba(99, 89, 99, 1) !important
+}
+
 
 .form-control {
     margin-top: 20px;
@@ -107,4 +120,37 @@ body {
     height: 2.1rem;
     border: none;
     border-radius: .5rem
+}
+#sbtn:hover{
+    background-color:#581c87;
+}
+
+.navlogout{
+    display: inline;            
+    font-size: 1.3rem;
+    border-radius: 0.6rem;        
+}
+
+.navlogout:hover{
+    background-color: #155e75;
+    color: white;
+    overflow: hidden;
+}
+
+input{
+    outline:none;
+    border: none;    
+}
+
+form{
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.37);
+}
+
+fieldset{
+    border: none;    
 }

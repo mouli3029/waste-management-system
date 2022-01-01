@@ -33,30 +33,45 @@
 
     <div class="container-center">
         <form method="POST" action="/register" class="form-content" modelAttribute="newuser">
-            <fieldset>
-                <legend>signup</legend>
+            <fieldset>                
                 <div class="form-group">
                     <div class="form-group-content">
-                        <label for="name">Name: </label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" required style="margin-left: 5.1rem;">
+                        <label for="name">Name </label>
+                        <input type="text" class="form-control" id="name" name="name" required style="margin-left: 5.1rem;">
                         <br>
-                        <label for="email">Email: </label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required style="margin-left: 5.5rem;">
+                        <label for="email">Email </label>
+                        <input type="email" class="form-control" id="email" name="email" required style="margin-left: 5.5rem;">
                         <br>
-                        <label for="mobile">Mobile: </label>
-                        <input type="number" class="form-control" id="phnno" name="phnno" placeholder="Enter mobile" required  style="margin-left: 4.55rem;">
+                        <label for="mobile">Mobile </label>
+                        <input type="number" class="form-control" id="mobile" name="mobile" required  style="margin-left: 4.55rem;">
                         <br>
-                        <label for="username">Username: </label>
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+                        <label for="username">Username </label>
+                        <input type="text" class="form-control" id="username" name="username" required>
                         <br>
                         <label for="password">Password:</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required  style="margin-left: 2rem;">
+                        <input type="password" class="form-control" id="password" name="password" required  style="margin-left: 1.7rem;">                        
+                        <img id="passtog" src="images/hidden.png" width="20" style="margin-left: 0.5rem;" onclick="myFunction()">                        
+                <script>
+                    function myFunction() {
+                        console.log("Hi")
+                        let x=document.querySelector("#password");
+                        let t=document.querySelector("#passtog");
+                        if (x.type === "password") {
+                            x.type = "text";
+                            t.src="images/visible.png";
+                        } 
+                        else {
+                            x.type = "password";
+                            t.src="images/hidden.png";
+                        }
+                    }
+                </script>
                         <br>
                         <button type="submit" class="btn btn-primary" id="sbtn">Signup</button>
                     </div>
                 </div>
                 <div class="last">
-                    <p>Have a Account ?<a href="/login" style="text-decoration: none; color: #E83A59; padding:3%; cursor:pointer;">Login</a></p>
+                    <p>Have a Account ?<a href="{% url "login" %}" style="text-decoration: none; color: #E83A59; padding:3%; cursor:pointer;">Login</a></p>
                 </div>
             </fieldset>
         </form>
@@ -81,6 +96,7 @@
                 </a>
             </li>
         </ul>
-    </footer>    
+    </footer>
+     
 </body>
 </html>

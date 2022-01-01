@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +26,9 @@ public class SlotBooking {
 	@Autowired
 	private SlotBookingRepo slotbookingrepo;
 	@GetMapping("/slotbooking")
-	public String slotBooking() {
+	public String slotBooking(ModelMap model) {
+		User user =(User) model.getAttribute("user");
+		System.out.println(user);
 		return "slotbooking";
 	}
 	
